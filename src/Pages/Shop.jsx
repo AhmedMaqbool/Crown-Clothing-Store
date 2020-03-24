@@ -33,7 +33,7 @@ class ShopPage extends React.Component
         </div>
         
         );
-            
+        
 
 
     }

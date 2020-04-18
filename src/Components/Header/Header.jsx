@@ -4,9 +4,10 @@ import {Link} from 'react-router-dom';
 import {ReactComponent as Logo} from '../../Assets/crown.svg';
 import {auth} from '../../FireBase/FireBase.util';
 import {connect} from 'react-redux';
+import CartIcon from '../Cart-Icon/cart-icon';
+import CardDropDown from '../CardDropDown/Card-Drop-Down';
 
-
-const Header=({currentUser})=>
+const Header=({currentUser,hidden})=>
 (
 <div className='header'>
 <Link className='logo-conatiner' to="/">
@@ -22,13 +23,18 @@ currentUser?
 (<Link className='option' to='/signin'>Sign In</Link>)
 
 }
+<CartIcon/>
 </div>
+{ hidden?null:
+<CardDropDown/>
+}
 </div>
 
 );
-const mapStateToProps=state=>({
+const mapStateToProps=({user:{currentUser},cart:{hidden}})=>({
 
-currentUser:state.user.currentUser
+currentUser,
+hidden
 
 });
 export default connect (mapStateToProps)(Header); 

@@ -13,7 +13,7 @@ import {setCurrentUser} from './Redux/user.actions';
 class App extends React.Component {
   
   
-unsubscribleFromAuth=null;
+unsubscribleFromAuthd =null;
 
 componentDidMount()
 {
@@ -70,12 +70,12 @@ const mapStateToProps=({user})=>({
       
   currentUser:user.currentUser
   
-  });
+  }); 
 
 const mapDispatchToProps = dispatch =>({
       
 setCurrentUser:user=>dispatch(setCurrentUser(user))
-
+  
 });
 
 export default connect (null,mapDispatchToProps)(App);
